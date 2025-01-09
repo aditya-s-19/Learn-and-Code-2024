@@ -76,7 +76,7 @@ rl.question("Enter the code: ", async (answer: string) => {
         console.log("Invalid Code");
       }
     } else {
-      console.log("Sorry, No data in countryData.json");
+      console.log("Sorry, No data in countries.json or neighbors.json");
     }
   } catch (err) {
     console.error("Error reading the file:", err);
