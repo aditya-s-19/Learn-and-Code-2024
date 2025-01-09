@@ -44,15 +44,14 @@ class CountryWithNeighbours {
 
 rl.question("Enter the code: ", async (answer: string) => {
   try {
-    const countryDataString = await fs.readFile("./public/countries.json", "utf8"); // Read the file directly
-    const neighborsDataString = await fs.readFile("./public/neighbors.json", "utf8"); // Read the file directly
+    const countryDataString = await fs.readFile("./public/countries.json", "utf8");
+    const neighborsDataString = await fs.readFile("./public/neighbors.json", "utf8");
     if (countryDataString && countryDataString.length > 0 && neighborsDataString && neighborsDataString.length > 0) {
       const countriesWithCode: Country[] = JSON.parse(countryDataString);
       const neighborsCodenames: Neighbors = JSON.parse(neighborsDataString);
       const countries: CountryWithNeighbours[] = [];
       for (let i = 0; i < countriesWithCode.length; i++) {
         let country = countriesWithCode[i];
-        // console.log(neighborsCodenames);
         let countryNeighborsCodenames = neighborsCodenames[country.code];
         let neigbours: Country[] = [];
         if (countryNeighborsCodenames) {
