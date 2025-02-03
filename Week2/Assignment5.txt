@@ -1,0 +1,36 @@
+Class Employee {
+    int id; 
+    string name; 
+    string department; 
+    bool: isWorking;
+
+    public:
+        saveEmployeeToDatabase()
+        printEmployeeDetailReportInXML()
+        printEmployeeDetailReportInCSV()
+        terminateEmployee()
+        bool getIsWorking()
+}; 
+
+
+SOLID Principles:
+1. Single Responsibility -
+    Following
+
+2. Open Closed - 
+    Not following, if new report type need to be added, it would change this class
+
+3. Liskov Substitution - 
+    Not applicable as no child class
+
+4. Interface Segragation - 
+    Not used
+
+5. Dependency Inversion -
+    Not applicable as its abstract class
+
+
+Other Improvements:
+1. Excessive new lines
+2. Bad Formatting
+3. Better naming is possible

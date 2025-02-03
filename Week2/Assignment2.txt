@@ -1,0 +1,42 @@
+using System;
+using System.Numerics;
+class MyClass {
+    static void Main(string[] args) {
+        var lengthOfNumbersAndQueries = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+        var totalNumbers = lengthOfNumbersAndQueries[0];
+        var totalQueries = lengthOfNumbersAndQueries[1];
+        var givenNumbers = Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);
+        long[] sumarr = new long[totalNumbers + 1];
+        sumarr[0] = 0;
+        for (int i = 1; i <= totalNumbers; i++)
+        {
+            sumarr[i] = sumarr[i - 1] + givenNumbers[i - 1];
+        }
+        for (var i = 0; i < totalQueries; i++)
+        {
+            var queryIndexes = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            Console.WriteLine((long)((long)(sumarr[queryIndexes[1]] - sumarr[queryIndexes[0] - 1]) / (queryIndexes[1] - queryIndexes[0] + 1)));
+        }
+    }
+}
+
+SOLID Principles:
+1. Single Responsibility -
+    Not following, Doing low level implementations of I/O handling along with finding mean from elements
+
+2. Open Closed - 
+    Not following, If lets say user wants to find only variance instead of mean, we'll have to modify this.
+
+3. Liskov Substitution - 
+    Not applicable as no child class
+
+4. Interface Segragation - 
+    Not used
+
+5. Dependency Inversion -
+    Not following, The High level flow depends on low level I/O and math implementations.
+
+Other Problems:
+1. Names (Should be more descriptive)
+2. Abstraction levels are mixed
+3. Incomplete code

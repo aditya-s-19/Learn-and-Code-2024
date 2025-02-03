@@ -1,0 +1,53 @@
+public
+
+
+class CustomerSearch {
+
+    public List < Customer > searchByCountry(string country) {
+        var query = from c in db.customers where c.Country.Contains(country) orderby c.CustomerID ascending select c;
+        return query.ToList();
+    }
+
+    public List < Customer > searchByCompanyName(string company) {
+        var query = from c in db.customers where c.Country.Contains(company) orderby c.CustomerID ascending select c;
+        return query.ToList();
+    }
+
+    public List < Customer > searchByContact(string contact) {
+        var query = from c in db.customers where c.Country.Contains(contact) orderby c.CustomerID ascending select c;
+        return query.ToList();
+    }
+
+    public string exportToCSV(List < Customer > data) {
+        StringBuilder sb = new StringBuilder();
+        foreach(var item in data) {
+            sb.AppendFormat("{0},{1}, {2}, {3}", item.CustomerID, item.CompanyName, item.ContactName, item.Country);
+            sb.AppendLine();
+        }
+        return sb.ToString();
+    }
+
+} 
+
+
+SOLID Principles:
+1. Single Responsibility -
+    Not following, Doing more than just searching (exporting to csv)
+
+2. Open Closed - 
+    Not following, eg, if user needs to change order of results, we need to change this class
+
+3. Liskov Substitution - 
+    Not applicable as no child class
+
+4. Interface Segragation - 
+    Not used
+
+5. Dependency Inversion -
+    Not following, The High level flow depends on low level string manipulations in ExportToCSV().
+
+Other Problems:
+1. Abstraction levels are mixed
+2. Unnecessary gaps and new lines
+3. Unnecessary comments
+4. function names should not start with capital letters

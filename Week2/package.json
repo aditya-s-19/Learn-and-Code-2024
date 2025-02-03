@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@types/node": "^22.13.0"
+  },
+  "name": "week2",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "undici-types": "^6.20.0"
+  },
+  "scripts": {
+    "start": "npx tsc && node ./Assignment1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

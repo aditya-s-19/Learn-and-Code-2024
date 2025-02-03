@@ -1,0 +1,61 @@
+// Does this Book class follow SRP?  
+
+
+interface IPrinter {
+    function printPage($page);
+}
+
+class Book {
+ 
+    function getTitle() {
+        return "A Great Book";
+    }
+ 
+    function getAuthor() {
+        return "John Doe";
+    }
+ 
+    function turnPage() {
+        // pointer to next page
+    }
+ 
+    function getCurrentPage() {
+        return "current page content";
+    }
+
+    function save() {
+        $filename = '/documents/'. $this->getTitle(). ' - ' . $this->getAuthor();
+        file_put_contents($filename, serialize($this));
+    }
+}
+ 
+class PlainTextPrinter implements IPrinter {
+ 
+    function printPage($page) {
+        echo $page;
+    }
+}
+ 
+class HtmlPrinter implements IPrinter {
+ 
+    function printPage($page) {
+        echo '<div style="single-page">' . $page . '</div>';
+    }
+}
+
+class Library {
+ 
+    function getLocation(Book book) {
+        // returns the position in the library
+        // ie. shelf number & room number
+    }
+}
+
+Answer:
+
+No, this class does not follow SRP. 
+
+This is because getLocations() gives the position of this book in library, but this should be in a Library class, and does not belong here.
+
+Other Improvements:
+1. Interfaces should be in other file, and should differ in naming from classes (like IInterface or InterfaceImpl class)
