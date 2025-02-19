@@ -10,7 +10,8 @@ export interface ApiParams {
   filter?: "text" | "none";
 }
 
-export interface Behaviours {
+// describes all available Behaviors for ITumblr
+export interface Behaviors {
   fetch?: IPostFetcher;
   filter?: IPostFilterer;
 }
