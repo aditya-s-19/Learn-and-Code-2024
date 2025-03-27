@@ -1,0 +1,20 @@
+{
+  "name": "tumblr_post_finder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node .\\dist\\index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.1",
+    "dotenv": "^16.4.7",
+    "tsc": "^2.0.4"
+  }
+}
