@@ -1,5 +1,4 @@
 import { IApiHandler } from "../Interfaces/IApiHandler";
-
 require("dotenv").config();
 
 export default class ApiHandler implements IApiHandler {
