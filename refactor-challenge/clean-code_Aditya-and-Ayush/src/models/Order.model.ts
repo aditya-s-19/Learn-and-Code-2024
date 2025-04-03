@@ -1,0 +1,34 @@
+import { Order } from "../classes/Order";
+import { errorMessages } from "../common/constants/errors";
+
+export class OrderModel {
+  private static orders: Map<string, Order> = new Map();
+
+  public static set(order: Order): void {
+    if (order instanceof Order && !this.orders.has(order.id)) {
+      this.orders.set(order.id, order);
+    } else {
+      throw new Error(errorMessages.invalidInstance("Order"));
+    }
+  }
+
+  public static get(orderId: string): Order {
+    if (typeof orderId === "string" && this.orders.has(orderId)) {
+      return this.orders.get(orderId) as Order;
+    } else {
+      throw new Error(errorMessages.instanceDoesNotExist("Order"));
+    }
+  }
+
+  public static delete(orderId: string): void {
+    if (typeof orderId === "string" && this.orders.has(orderId)) {
+      this.orders.delete(orderId);
+    } else {
+      throw new Error(errorMessages.instanceDoesNotExist("Order"));
+    }
+  }
+
+  public static getAll(): Order[] {
+    return Array.from(this.orders.values());
+  }
+}
