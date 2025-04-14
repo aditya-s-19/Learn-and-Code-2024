@@ -1,7 +1,6 @@
 import { CategoryEnum } from "../common/enums/category.enum";
-import { IProduct } from "../interfaces/IProduct";
 
-export class Product implements IProduct {
+export class Product {
   id: string;
   name: string;
   price: number;

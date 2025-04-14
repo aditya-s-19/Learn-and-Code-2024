@@ -1,8 +1,7 @@
 import { OrderStatusEnum } from "../common/enums/order-status.enum";
-import { IOrder } from "../interfaces/IOrder";
 import { IOrderItem } from "../interfaces/IOrderItem";
 
-export class Order implements IOrder {
+export class Order {
   id: string;
   customerId: string;
   items: IOrderItem[];

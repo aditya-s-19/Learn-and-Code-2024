@@ -5,11 +5,15 @@ export class CustomerModel {
   private static customers: Map<string, Customer> = new Map();
 
   public static set(customer: Customer): void {
-    if (customer instanceof Customer && !this.customers.has(customer.id)) {
-      this.customers.set(customer.id, customer);
-    } else {
+    if (!(customer instanceof Customer)) {
       throw new Error(errorMessages.invalidInstance("Customer"));
     }
+
+    if (this.customers.has(customer.id)) {
+      throw new Error(errorMessages.alreadyExists("Customer"));
+    }
+
+    this.customers.set(customer.id, customer);
   }
 
   public static get(customerId: string): Customer {

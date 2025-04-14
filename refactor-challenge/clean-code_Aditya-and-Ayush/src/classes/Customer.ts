@@ -1,7 +1,6 @@
 import { MembershipLevelEnum } from "../common/enums/membership-level.enum";
-import { ICustomer } from "../interfaces/ICustomer";
 
-export class Customer implements ICustomer {
+export class Customer {
   id: string;
   name: string;
   email: string;

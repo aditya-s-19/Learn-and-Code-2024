@@ -2,7 +2,6 @@ import { Customer } from "./classes/Customer";
 import { Product } from "./classes/Product";
 import { Order } from "./classes/Order";
 import { OrderProcessor } from "./classes/OrderProcessor";
-import { Report } from "./classes/Report";
 import { Logger } from "./common/utils/Logger";
 import { MembershipLevelEnum } from "./common/enums/membership-level.enum";
 import { CategoryEnum } from "./common/enums/category.enum";
@@ -31,7 +30,15 @@ async function main() {
     Logger.error(err);
   }
 
-  const product = new Product("PROD1", "Widget Pro", 99.99, "A fantastic widget", CategoryEnum.Electronics, 100, true);
+  const product = new Product(
+    "PROD1",
+    "Widget Pro",
+    99.99,
+    "A fantastic widget",
+    CategoryEnum.Electronics,
+    100,
+    true
+  );
   try {
     ProductModel.set(product);
     Logger.info(loggerMessages.onProductCreated(product.name));
