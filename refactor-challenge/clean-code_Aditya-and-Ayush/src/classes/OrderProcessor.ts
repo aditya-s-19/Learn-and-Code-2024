@@ -33,7 +33,7 @@ export abstract class OrderProcessor {
     OrderProcessor.updateProductStock(order.items);
     const discount = OrderProcessor.calculateDiscount(customer, order.totalAmount);
     OrderProcessor.updateOrderAfterProcessing(order, discount);
-    OrderModel.set(order);
+    OrderModel.update(order);
     OrderProcessor.processingQueue.push(order.id);
 
     await Notification.sendCustomerNotification(customer.email, `Order ${orderId} is being processed`);
@@ -79,7 +79,7 @@ export abstract class OrderProcessor {
       const product = ProductModel.get(item.productId);
       if (product) {
         product.stock += isCancel ? item.quantity : -item.quantity;
-        ProductModel.set(product);
+        ProductModel.update(product);
         Logger.debug(loggerMessages.updatedProductStock(product.id, product.stock));
       }
     }

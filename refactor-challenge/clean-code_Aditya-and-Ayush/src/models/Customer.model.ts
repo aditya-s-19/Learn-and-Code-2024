@@ -4,7 +4,7 @@ import { errorMessages } from "../common/constants/errors";
 export class CustomerModel {
   private static customers: Map<string, Customer> = new Map();
 
-  public static set(customer: Customer): void {
+  public static create(customer: Customer): void {
     if (!(customer instanceof Customer)) {
       throw new Error(errorMessages.invalidInstance("Customer"));
     }
@@ -22,6 +22,18 @@ export class CustomerModel {
     } else {
       throw new Error(errorMessages.instanceDoesNotExist("Customer"));
     }
+  }
+
+  public static update(customer: Customer): void {
+    if (!(customer instanceof Customer)) {
+      throw new Error(errorMessages.invalidInstance("Customer"));
+    }
+
+    if (!this.customers.has(customer.id)) {
+      throw new Error(errorMessages.instanceDoesNotExist("Customer"));
+    }
+
+    this.customers.set(customer.id, customer);
   }
 
   public static delete(customerId: string): void {

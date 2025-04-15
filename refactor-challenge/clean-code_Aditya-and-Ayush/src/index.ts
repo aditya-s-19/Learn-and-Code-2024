@@ -24,23 +24,15 @@ async function main() {
     MembershipLevelEnum.Gold
   );
   try {
-    CustomerModel.set(customer);
+    CustomerModel.create(customer);
     Logger.info(loggerMessages.onCustomerCreated(customer.id, customer.name));
   } catch (err) {
     Logger.error(err);
   }
 
-  const product = new Product(
-    "PROD1",
-    "Widget Pro",
-    99.99,
-    "A fantastic widget",
-    CategoryEnum.Electronics,
-    100,
-    true
-  );
+  const product = new Product("PROD1", "Widget Pro", 99.99, "A fantastic widget", CategoryEnum.Electronics, 100, true);
   try {
-    ProductModel.set(product);
+    ProductModel.create(product);
     Logger.info(loggerMessages.onProductCreated(product.name));
   } catch (err) {
     Logger.error(err);
@@ -59,7 +51,7 @@ async function main() {
     totalAmount
   );
   try {
-    OrderModel.set(order);
+    OrderModel.create(order);
     Logger.info(loggerMessages.onOrderCreated(order.id, order.totalAmount));
   } catch (err) {
     Logger.error(err);

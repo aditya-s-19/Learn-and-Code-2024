@@ -4,7 +4,7 @@ import { errorMessages } from "../common/constants/errors";
 export class ProductModel {
   private static products: Map<string, Product> = new Map();
 
-  public static set(product: Product): void {
+  public static create(product: Product): void {
     if (!(product instanceof Product)) {
       throw new Error(errorMessages.invalidInstance("Product"));
     }
@@ -22,6 +22,18 @@ export class ProductModel {
     } else {
       throw new Error(errorMessages.instanceDoesNotExist("Product"));
     }
+  }
+
+  public static update(product: Product): void {
+    if (!(product instanceof Product)) {
+      throw new Error(errorMessages.invalidInstance("Product"));
+    }
+
+    if (!this.products.has(product.id)) {
+      throw new Error(errorMessages.instanceDoesNotExist("Product"));
+    }
+
+    this.products.set(product.id, product);
   }
 
   public static delete(productId: string): void {
