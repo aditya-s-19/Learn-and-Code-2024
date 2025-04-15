@@ -9,7 +9,7 @@ public class Wallet {
         if(newValue>=0){
             value = newValue;
         }else{
-            throw new NegativeAmountException(ErrorMessages.NEGATIVE_AMOUNT);
+            throw new NegativeAmountException(ErrorMessages.negativeAmount);
         }
     }
 }
