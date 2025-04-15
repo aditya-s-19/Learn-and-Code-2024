@@ -8,7 +8,7 @@ import { CustomerModel } from "../models/Customer.model";
 import { OrderModel } from "../models/Order.model";
 import { ProductModel } from "../models/Product.model";
 import { Order } from "./Order";
-import { loggerMessages } from "../common/constants/logger";
+import { loggerMessages } from "../common/utils/loggerMessages";
 import { errorMessages } from "../common/constants/errors";
 
 export abstract class OrderProcessor {

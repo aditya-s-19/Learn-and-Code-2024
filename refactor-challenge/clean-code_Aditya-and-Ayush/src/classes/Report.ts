@@ -1,6 +1,6 @@
-import { loggerMessages } from "../common/constants/logger";
 import { OrderStatusEnum } from "../common/enums/order-status.enum";
 import { Logger } from "../common/utils/Logger";
+import { loggerMessages } from "../common/utils/loggerMessages";
 import { CustomerModel } from "../models/Customer.model";
 import { OrderModel } from "../models/Order.model";
 import { Order } from "./Order";

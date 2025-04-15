@@ -10,10 +10,10 @@ import { CustomerModel } from "./models/Customer.model";
 import { ProductModel } from "./models/Product.model";
 import { OrderModel } from "./models/Order.model";
 import { IOrderItem } from "./interfaces/IOrderItem";
-import { loggerMessages } from "./common/constants/logger";
+import { loggerMessages } from "./common/utils/loggerMessages";
 
 async function main() {
-  Logger.info(loggerMessages.onStart);
+  Logger.info(loggerMessages.onStart());
 
   const customer = new Customer(
     "CUST1",
@@ -59,13 +59,13 @@ async function main() {
 
   try {
     await OrderProcessor.processOrder(order.id);
-    Logger.info(loggerMessages.onOrderProcessSucceeded);
+    Logger.info(loggerMessages.onOrderProcessSucceeded());
   } catch (err) {
-    Logger.info(`${loggerMessages.onOrderProcessFailed}: ${err}`);
+    Logger.info(`${loggerMessages.onOrderProcessFailed()}: ${err}`);
   }
 }
 
 main().catch((error) => {
-  Logger.error("Application error:", error);
+  Logger.error(`${loggerMessages.applicationError()}: ${error}`);
   return;
 });
