@@ -16,17 +16,22 @@ export class GeocodingService {
     private configService: ConfigService,
     private httpService: HttpService,
   ) {
-    const apiKey = this.configService.get<string>(ENV_KEYS.GEOCODING_API_KEY) ?? '';
-    const apiURL = this.configService.get<string>(ENV_KEYS.GEOCODING_API_URL) ?? '';
+    const apiKey =
+      this.configService.get<string>(ENV_KEYS.GEOCODING_API_KEY) ?? '';
+    const baseUrl =
+      this.configService.get<string>(ENV_KEYS.GEOCODING_API_URL) ?? '';
 
-    this.apiUrl = `${apiURL}?${queryParams.api_key}=${apiKey}`;
+    this.apiUrl = `${baseUrl}?${queryParams.api_key}=${apiKey}`;
   }
 
   async getCoordinates(location: string) {
     const url = `${this.apiUrl}&${queryParams.q}=${encodeURIComponent(location)}`;
     try {
-      const response: AxiosResponse = await firstValueFrom(this.httpService.get(url));
-      const data: SearchLocationResponse = response.data as SearchLocationResponse;
+      const response: AxiosResponse = await firstValueFrom(
+        this.httpService.get(url),
+      );
+      const data: SearchLocationResponse =
+        response.data as SearchLocationResponse;
       const result = data.length
         ? {
             display_name: data[0].display_name,
@@ -34,11 +39,12 @@ export class GeocodingService {
             longitude: data[0].lon,
           }
         : {};
-      return result;      
-    } 
-    catch (error) {
+      return result;
+    } catch (error) {
       console.log(error);
-      throw new InternalServerErrorException(errorMessages.anErrorOccuredWhileFetchingCoordinates);
+      throw new InternalServerErrorException(
+        errorMessages.anErrorOccuredWhileFetchingCoordinates,
+      );
     }
   }
 }
