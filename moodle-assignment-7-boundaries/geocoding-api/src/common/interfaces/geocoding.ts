@@ -2,7 +2,7 @@ export type SearchLocationResponse = {
   place_id: number;
   licence: string;
   osm_type: string;
-  osm_id: 175905;
+  osm_id: number;
   boundingbox: string[];
   lat: string;
   lon: string;
