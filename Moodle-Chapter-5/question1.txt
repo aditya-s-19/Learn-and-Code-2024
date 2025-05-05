@@ -1,0 +1,5 @@
+The 'employee' in this given example is an instance of a Data Structure Class named 'Employee'.
+'Employee' can be considered a Data structure class because: 
+1. It keeps all the data related to an employee.
+2. It keeps the all the getters and setters for the data of an employee.
+3. It does not keep any behaviour related logic ,for eg, a function like generateYearlySalary() is not added in this class.
