@@ -1,0 +1,11 @@
+[
+  {
+    "accountNumber": 1,
+    "accountHolderName": "Aditya Sharma",
+    "type": "current",
+    "currentBalance": 70000,
+    "PIN": 1111,
+    "continuousInvalidPINAttempts": 0,
+    "blocked": false
+  }
+]

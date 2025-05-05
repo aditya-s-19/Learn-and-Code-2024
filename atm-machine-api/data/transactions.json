@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "accountNumber": 1,
+    "transactionType": "credit",
+    "amount": 5000,
+    "transactionDate": "2025-04-22T10:30:00Z",
+    "newBalance": 70000
+  }
+]
