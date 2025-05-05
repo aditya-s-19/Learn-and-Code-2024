@@ -1,13 +1,13 @@
 public class Wallet {
-    private float value;
+    private float balance;
 
-    public float getTotalMoney() {
-        return value;
+    public float getBalance() {
+        return this.balance;
     }
 
-    public void setTotalMoney(float newValue) {
-        if(newValue>=0){
-            value = newValue;
+    public void setBalance(float newBalance) {
+        if(newbalance>=0){
+            this.balance = newBalance;
         }else{
             throw new NegativeAmountException(ErrorMessages.negativeAmount);
         }

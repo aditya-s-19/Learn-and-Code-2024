@@ -6,14 +6,14 @@ public class Main{
             WalletProcessor walletProcessor = new WalletProcessor();
             float payment = 2;
 
-            wallet.setTotalMoney(10);
+            wallet.setBalance(10);
             myCustomer.setWallet(wallet);
 
             Wallet theWallet = myCustomer.getWallet();
 
-            if (theWallet.getTotalMoney() >= payment) {
-                walletProcessor.subtractMoney(theWallet, payment);
-                System.out.println(LoggerMessages.paymentSuccessfulRemainingBalance + theWallet.getTotalMoney());
+            if (theWallet.getBalance() >= payment) {
+                walletProcessor.withdraw(theWallet, payment);
+                System.out.println(LoggerMessages.paymentSuccessfulRemainingBalance + theWallet.getBalance());
             } else {
                 System.out.println(LoggerMessages.insufficientFundsPleaseComeBackLater);
             }

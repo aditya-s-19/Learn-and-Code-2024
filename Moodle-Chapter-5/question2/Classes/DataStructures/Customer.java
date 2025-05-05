@@ -24,7 +24,7 @@ public class Customer {
     }
 
     public void setWallet(Wallet newWallet){
-        if (wallet == null || wallet.getTotalMoney() < 0) {
+        if (wallet == null || wallet.getBalance() < 0) {
             throw new IllegalArgumentException(ErrorMessages.invalidWallet);
         }
         this.myWallet = newWallet;

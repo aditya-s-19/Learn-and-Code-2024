@@ -1,20 +1,20 @@
 public class WalletProcessor {
-    public void addMoney(Wallet wallet, float deposit) {
-        if(deposit<0){
+    public void deposit(Wallet wallet, float creditAmount) {
+        if(creditAmount<0){
             throw new NegativeAmountException(ErrorMessages.negativeAmount);
         }
-        float totalMoney = wallet.getTotalMoney();
-        wallet.setTotalMoney(totalMoney + deposit);
+        float balance = wallet.getBalance();
+        wallet.setBalance(balance + creditAmount);
     }
 
-    public void subtractMoney(Wallet wallet, float debit) {
-        if(debit<0){
+    public void withdraw(Wallet wallet, float debitAmount) {
+        if(debitAmount<0){
             throw new NegativeAmountException(ErrorMessages.negativeAmount);
         }
-        float totalMoney = wallet.getTotalMoney();
-        if((totalMoney-debit)<0){
+        float balance = wallet.getBalance();
+        if((balance-debitAmount)<0){
             throw new InsufficientFundsException(ErrorMessages.insufficientFunds);
         }
-        wallet.setTotalMoney(totalMoney - debit);
+        wallet.setBalance(balance - debitAmount);
     }
 }
