@@ -7,19 +7,18 @@ import { AxiosResponse } from 'axios';
 import { firstValueFrom } from 'rxjs';
 import { SearchLocationResponse } from '../../../src/common/interfaces/geocoding';
 import { errorMessages } from '../../../src/common/constants/error-messages';
+import { AppConfigService } from '../config/app-config.service';
 
 @Injectable()
 export class GeocodingService {
   private apiUrl: string;
 
   constructor(
-    private configService: ConfigService,
+    private appConfigService: AppConfigService,
     private httpService: HttpService,
   ) {
-    const apiKey =
-      this.configService.get<string>(ENV_KEYS.GEOCODING_API_KEY) ?? '';
-    const baseUrl =
-      this.configService.get<string>(ENV_KEYS.GEOCODING_API_URL) ?? '';
+    const apiKey = this.appConfigService.getGeocodeApiKey();
+    const baseUrl = this.appConfigService.getGeocodeApiUrl();
 
     this.apiUrl = `${baseUrl}?${queryParams.api_key}=${apiKey}`;
   }
