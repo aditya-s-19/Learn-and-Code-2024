@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ENV_KEYS } from 'src/common/constants/env-variables';
-import { errorMessages } from 'src/common/constants/error-messages';
+import { ENV_KEYS } from '../../../src/common/constants/env-variables';
+import { errorMessages } from '../../../src/common/constants/error-messages';
 
 @Injectable()
 export class AppConfigService {

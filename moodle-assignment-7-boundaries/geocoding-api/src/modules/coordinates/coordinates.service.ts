@@ -6,7 +6,7 @@ export class CoordinatesService {
   constructor(private geocodingService: GeocodingService) {}
 
   async getCoordinates(location: string) {
-    const result = await this.geocodingService.getCoordinates(location);
-    return result;
+    const coordinates = await this.geocodingService.getCoordinates(location);
+    return coordinates;
   }
 }
