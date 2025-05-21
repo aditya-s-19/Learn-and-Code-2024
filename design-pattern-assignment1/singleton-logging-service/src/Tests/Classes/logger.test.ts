@@ -30,7 +30,7 @@ describe("Logger Singleton", () => {
 
   it("should not log a debug message when debug is disabled", () => {
     process.env.ENABLE_DEBUG = "false";
-    TestLogger.resetInstance(); // Reset the singleton instance
+    TestLogger.resetInstance();
     const loggerWithDebugDisabled = TestLogger.getInstance();
     const consoleSpy = jest.spyOn(console, "log").mockImplementation();
     loggerWithDebugDisabled.debug("This should not be logged");
@@ -56,6 +56,6 @@ describe("Logger Singleton", () => {
   it("should return the same instance of Logger", () => {
     const logger = Logger.getInstance();
     const anotherLogger = Logger.getInstance();
-    expect(logger).toBe(anotherLogger); // Singleton behavior
+    expect(logger).toBe(anotherLogger);
   });
 });

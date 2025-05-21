@@ -6,4 +6,4 @@ logger.error("An error occurred.");
 logger.debug("Debugging information.");
 
 const anotherLogger = Logger.getInstance();
-console.log(logger === anotherLogger); // Output: true
+console.log(logger === anotherLogger);
