@@ -1,0 +1,19 @@
+{
+  "name": "abstractfactory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node src/main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jest": "^29.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "ts-jest": "^29.3.4"
+  }
+}
