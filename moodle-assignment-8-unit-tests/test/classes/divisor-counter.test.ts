@@ -5,6 +5,7 @@ describe("DivisorCounter.countSameDivisorCountPairs", () => {
   it("should throw InvalidArgumentException for invalid input", () => {
     expect(() => DivisorCounter.countSameDivisorCountPairs(-1)).toThrow(InvalidArgumentException);
     expect(() => DivisorCounter.countSameDivisorCountPairs(5.5)).toThrow(InvalidArgumentException);
+    expect(() => DivisorCounter.countSameDivisorCountPairs(10_000_001)).toThrow(InvalidArgumentException);
   });
 
   it("should return 0 for max < 3 (no valid pairs)", () => {
