@@ -25,11 +25,11 @@ describe("DivisorCounter.countSameDivisorCountPairs", () => {
     expect(DivisorCounter.countSameDivisorCountPairs(7)).toBe(1);
   });
 
-  it("matches the example from the prompt (max = 15)", () => {
+  it("should match the example from the prompt (max = 15)", () => {
     expect(DivisorCounter.countSameDivisorCountPairs(15)).toBe(2);
   });
 
-  it("correctly computes multiple intervals", () => {
+  it("should correctly compute multiple intervals", () => {
     expect(DivisorCounter.countSameDivisorCountPairs(10)).toBe(1);
     expect(DivisorCounter.countSameDivisorCountPairs(20)).toBe(2);
     expect(DivisorCounter.countSameDivisorCountPairs(30)).toBe(4);
@@ -37,14 +37,14 @@ describe("DivisorCounter.countSameDivisorCountPairs", () => {
     expect(DivisorCounter.countSameDivisorCountPairs(100)).toBe(15);
   });
 
-  it("consecutive calls are independent", () => {
+  it("should handle consecutive calls are independently", () => {
     const first = DivisorCounter.countSameDivisorCountPairs(50);
     const second = DivisorCounter.countSameDivisorCountPairs(30);
     expect(first).toBe(8);
     expect(second).toBe(4);
   });
 
-  it("performance: should handle max up to 10^4 quickly", () => {
+  it("should handle max up to 10^4 quickly (performance)", () => {
     const start = Date.now();
     const result = DivisorCounter.countSameDivisorCountPairs(10000);
     const duration = Date.now() - start;
@@ -52,7 +52,7 @@ describe("DivisorCounter.countSameDivisorCountPairs", () => {
     expect(duration).toBeLessThan(100);
   });
 
-  it("performance: should handle max up to 10^6 within reasonable time", () => {
+  it("should handle max up to 10^6 within reasonable time (performance)", () => {
     const start = Date.now();
     const result = DivisorCounter.countSameDivisorCountPairs(1_000_000);
     const duration = Date.now() - start;
@@ -60,7 +60,7 @@ describe("DivisorCounter.countSameDivisorCountPairs", () => {
     expect(duration).toBeLessThan(1000);
   }, 20000);
 
-  it("performance: should handle max up to 10^7 within reasonable time", () => {
+  it("should handle max up to 10^7 within reasonable time (performance)", () => {
     const start = Date.now();
     const result = DivisorCounter.countSameDivisorCountPairs(10_000_000);
     const duration = Date.now() - start;
