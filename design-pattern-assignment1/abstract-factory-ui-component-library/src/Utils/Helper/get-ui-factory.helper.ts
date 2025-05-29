@@ -1,6 +1,6 @@
 import { MacOSUIFactory } from "../../Factories/mac-os-ui.factory";
 import { WindowsUIFactory } from "../../Factories/windows-ui.factory";
-import { UIFactory } from "../../Interfaces/abtract-ui-factory.interface";
+import { UIFactory } from "../../Interfaces/ui-factory.interface";
 import { errorMessages } from "../Constants/error-messages";
 import { OSPlatform } from "../Enums/os-platform.enum";
 import { InvalidArgumentException } from "../Errors/invalid-argument.error";

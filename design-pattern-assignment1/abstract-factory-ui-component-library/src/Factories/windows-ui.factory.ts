@@ -1,7 +1,7 @@
 import { WindowsButton } from "../Components/Windows/windows-button";
 import { WindowsCheckbox } from "../Components/Windows/windows-checkbox";
 import { WindowsTextField } from "../Components/Windows/windows-text-field";
-import { UIFactory } from "../Interfaces/abtract-ui-factory.interface";
+import { UIFactory } from "../Interfaces/ui-factory.interface";
 import { UIComponent } from "../Interfaces/ui-component.interface";
 import { errorMessages } from "../Utils/Constants/error-messages";
 import { UIComponentType } from "../Utils/Enums/ui-component.enum";
